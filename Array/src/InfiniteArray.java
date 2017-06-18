@@ -3,6 +3,7 @@ public class InfiniteArray {
 	// You should only have one array stored in the object.
 	String[] data;
 	int defaultSize = 10; // or something
+	int currentIndex = 0; //the counter
 	
 	//constructor
 	public InfiniteArray(){
@@ -37,21 +38,9 @@ public class InfiniteArray {
 		// This makes sense, but it is slow because we have to search through the array one by one every time
 		// we want to add something. Maybe it would be better to just store "nextIndex" as a variable inside
 		// the object? Then we can directly use nextIndex without searching, and just update it after a change.
-		int nextIndex = 0;
-		//check current occupation
-		for(int c = 0; c < c + 1; c++){
-			String check = array1[c];
-			if(check != null){
-				continue;
-			}
-			else{
-				nextIndex = c; 
-				break;
-			}
-		}
-		
 		//add new content
-		array1[nextIndex] = value;
+		array1[currentIndex] = value;
+		currentIndex +=;
 	}
 	
 	public void expandTo(int newSize){
