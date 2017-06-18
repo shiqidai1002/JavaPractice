@@ -7,9 +7,10 @@ public class InfiniteArray {
 	//constructor
 	public InfiniteArray(){
 		// You should use the array constructor here to create your array with some default size.
+		data = new String[defultSize];
 	};
 	
-	public InfiniteArray(int size) {
+	public InfiniteArray(int initialSize) {
 		// Remember, objects can have more than one constructor
 		// We can have another constructor here for when the user wants to specify an initial size.
 		data = new String[initialSize];
