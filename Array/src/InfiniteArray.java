@@ -19,19 +19,20 @@ public class InfiniteArray {
 	
 	public void display(){
 		for (int i = 0; i < array1.length; i++){
-			System.out.println(array1[i]);
+			System.out.println(data[i]);
 		}
 	}
 	
 	public String toString() {
 		// most objects have a toString method. You can write one here as well.
+		String result = "";
+		for (int i = 0; i < data.length; i++)
+			result = result + "||" + data[i];
+		return result;
 	}
 	
 	public void flush(){
-	
-		// Also, instead of setting your data to null, you should create a new array with the default size
-		// This way, if the user tries to add to the array after flushing it won't crash the program.
-		array1 = null;
+		data = new String[defaultSize]; //create a new array with the default size
 	}
 	
 	public void fill(String value){
@@ -39,7 +40,7 @@ public class InfiniteArray {
 		// we want to add something. Maybe it would be better to just store "nextIndex" as a variable inside
 		// the object? Then we can directly use nextIndex without searching, and just update it after a change.
 		//add new content
-		array1[currentIndex] = value;
+		data[currentIndex] = value;
 		currentIndex +=;
 	}
 	
