@@ -25,8 +25,8 @@ public class InfiniteArray {
 		// most objects have a toString method. You can write one here as well.
 	}
 	
-	public void fulsh(){
-		// You spelled "flush" incorrectly
+	public void flush(){
+	
 		// Also, instead of setting your data to null, you should create a new array with the default size
 		// This way, if the user tries to add to the array after flushing it won't crash the program.
 		array1 = null;
@@ -53,8 +53,8 @@ public class InfiniteArray {
 		array1[nextIndex] = value;
 	}
 	
-	public void expendTo(int newSize){
-		// You spelled "expand" incorrectly
+	public void expandTo(int newSize){
+		
 		// But the truth is, we don't need these methods. We should automatically
 		// expand the array when the size is not large enough. See your test class for an example use case.
 		array2 = new String[newSize];
@@ -64,7 +64,7 @@ public class InfiniteArray {
 		array1 = array2;
 	}
 	
-	public void expend(int additionalSize){
+	public void expand(int additionalSize){
 		array2 = new String[array1.length + additionalSize];
 		for (int i = 0; i < array1.length; i++){
 			array2[i] = array1[i];
