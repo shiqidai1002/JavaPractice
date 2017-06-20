@@ -64,6 +64,19 @@ public class InfiniteArray {
 	}
 	
 	public int size(){
+		// This should not return data.length.
+		// Instead, it should return the number of things that are stored inside the array
+		// So if the array starts at size 10, and the user adds 3 things, the size() should return 3.
 		return data.length;
+	}
+	
+	public void insert(int index, String value) {
+		// This method should insert a value at the specified index.
+		// This is different from the set() method because if there is other data behind it, this method should
+		// move the other data back.
+		// For example, for a list of [cat, dog, bird, fish, beer, null, null, ....]
+		// If you call insert(2, sake);
+		// The list should then become [cat, dog, sake, bird, fish, beer, null, null, ...]
+		// Dont forget to expand the array if the array gets full!
 	}
 }
