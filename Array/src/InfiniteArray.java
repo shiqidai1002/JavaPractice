@@ -41,6 +41,8 @@ public class InfiniteArray {
 		//check occupation
 		if(currentIndex == data.length)
 			data = autoExpand(currentIndex);
+		
+		//add new item
 		data[currentIndex] = value;
 		currentIndex ++;
 	}
