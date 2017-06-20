@@ -11,7 +11,7 @@ public class TestInfiniteArray {
 		for ( int x = 0; x < 20; x++ ) {
 			list.add("load test" + " " + x);
 		}
-		System.out.println(list.get(666));
+		System.out.println(list.get(6));
 		list.set(0, "Deus Vult"); // should set "lmao" to "Deus Vult"
 		System.out.println(list.get(0));
 		System.out.println(list.size());
