@@ -3,22 +3,24 @@ public class InfiniteArray {
 	// You should only have one array stored in the object.
 	String[] data;
 	int defaultSize = 10; // or something
+	int initialSize = 0;
 	int currentIndex = 0; //the counter
 	
 	//constructor
 	public InfiniteArray(){
 		// You should use the array constructor here to create your array with some default size.
-		data = new String[defultSize];
+		data = new String[defaultSize];
 	};
 	
-	public InfiniteArray(int initialSize) {
+	public InfiniteArray(int size) {
 		// Remember, objects can have more than one constructor
 		// We can have another constructor here for when the user wants to specify an initial size.
+		initialSize = size;
 		data = new String[initialSize];
 	}
 	
 	public void display(){
-		for (int i = 0; i < array1.length; i++){
+		for (int i = 0; i < data.length; i++){
 			System.out.println(data[i]);
 		}
 	}
@@ -35,31 +37,31 @@ public class InfiniteArray {
 		data = new String[defaultSize]; //create a new array with the default size
 	}
 	
-	public void fill(String value){
-		// This makes sense, but it is slow because we have to search through the array one by one every time
-		// we want to add something. Maybe it would be better to just store "nextIndex" as a variable inside
-		// the object? Then we can directly use nextIndex without searching, and just update it after a change.
-		//add new content
+	public void add(String value){
+		//check occupation
+		if(currentIndex == data.length)
+			data = autoExpand(currentIndex);
 		data[currentIndex] = value;
-		currentIndex +=;
+		currentIndex ++;
 	}
 	
-	public void expandTo(int newSize){
-		
-		// But the truth is, we don't need these methods. We should automatically
-		// expand the array when the size is not large enough. See your test class for an example use case.
-		array2 = new String[newSize];
-		for (int i = 0; i < array1.length; i++){
-			array2[i] = array1[i];
+	private String[] autoExpand(int currentIndex){
+		String[] data2 = new String[currentIndex * 2];
+		for (int i = 0; i < data.length; i++){
+			data2[i] = data[i];
 		}
-		array1 = array2;
+		return data2;
 	}
 	
-	public void expand(int additionalSize){
-		array2 = new String[array1.length + additionalSize];
-		for (int i = 0; i < array1.length; i++){
-			array2[i] = array1[i];
-		}
-		array1 = array2;
+	public String get(int index){
+		return data[index];
+	}
+	
+	public void set(int index, String value){
+		data[index] = value;
+	}
+	
+	public int size(){
+		return data.length;
 	}
 }
