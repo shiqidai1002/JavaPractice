@@ -41,8 +41,7 @@ public class InfiniteArray {
 		//check occupation
 		if(currentIndex == data.length)
 			data = autoExpand(currentIndex);
-		
-		//add new item
+		//add value
 		data[currentIndex] = value;
 		currentIndex ++;
 	}
@@ -63,20 +62,40 @@ public class InfiniteArray {
 		data[index] = value;
 	}
 	
-	public int size(){
-		// This should not return data.length.
-		// Instead, it should return the number of things that are stored inside the array
-		// So if the array starts at size 10, and the user adds 3 things, the size() should return 3.
+	public int length(){
 		return data.length;
 	}
 	
-	public void insert(int index, String value) {
+	public int size(){
+		// It should return the number of things that are stored inside the array
+		// So if the array starts at size 10, and the user adds 3 things, the size() should return 3.
+		
+		int x = 0;
+		for (int i = 0; i < data.length; i++){
+			if ( data[i] != null )
+				x++;
+		}
+		return x;
+	}
+	
+	public void insert(int index, String value){
 		// This method should insert a value at the specified index.
 		// This is different from the set() method because if there is other data behind it, this method should
 		// move the other data back.
 		// For example, for a list of [cat, dog, bird, fish, beer, null, null, ....]
 		// If you call insert(2, sake);
 		// The list should then become [cat, dog, sake, bird, fish, beer, null, null, ...]
-		// Dont forget to expand the array if the array gets full!
+		// Don¡¯t forget to expand the array if the array gets full!
+		
+		//check occupation
+		if(currentIndex == data.length)
+			data = autoExpand(currentIndex);
+		//make a space
+		for (int i = size(); i > index; i--){
+			data[i] = data[i - 1];
+		}
+		//insert value
+		data[index] = value;
+		currentIndex ++;
 	}
 }
